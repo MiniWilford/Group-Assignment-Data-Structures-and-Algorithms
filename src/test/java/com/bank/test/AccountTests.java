@@ -64,6 +64,7 @@ public class AccountTests {
     @Test
     public void reportTotalInterestEarnedInAllAccounts () {
 
+
         Account.computeInterest();
         assertEquals(81444.74, Account.computeInterest(), 1.0);
     }
