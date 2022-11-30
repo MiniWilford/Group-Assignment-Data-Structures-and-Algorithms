@@ -1,0 +1,1 @@
+[{"type":"Checking","properties":{"interest":5.0,"balance":10000.0,"periods":10}},{"type":"Savings","properties":{"interest":5.0,"balance":10000.0,"periods":10}},{"type":"CertificateOfDeposit","properties":{"maturity":12,"interest":5.0,"balance":10000.0,"periods":10}},{"type":"Checking","properties":{"interest":10.0,"balance":20000.0,"periods":5}}]
