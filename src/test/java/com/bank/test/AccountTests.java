@@ -1,9 +1,6 @@
 package com.bank.test;
 
-import com.bank.Account;
-import com.bank.CertificateOfDeposit;
-import com.bank.Checking;
-import com.bank.Savings;
+import com.bank.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -67,8 +64,8 @@ public class AccountTests {
     @Test
     public void reportTotalInterestEarnedInAllAccounts () {
 
-        account.computeInterest();
-        assertEquals(81444.74, account.computeInterest(), 1.0);
+        Account.computeInterest();
+        assertEquals(81444.74, Account.computeInterest(), 1.0);
     }
 
 
