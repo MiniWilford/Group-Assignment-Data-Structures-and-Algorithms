@@ -1,11 +1,13 @@
 package com.bank.test;
 
+import com.bank.Account;
 import com.bank.CertificateOfDeposit;
 import com.bank.Checking;
 import com.bank.Savings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AccountTests {
 
@@ -46,5 +48,29 @@ public class AccountTests {
         certificateOfDeposit.setMaturity(5);
         assertEquals(MATURITY, certificateOfDeposit.getMaturity());
     }
+
+    @Test
+    public void withdraw5000fromLowestInterestAccount() {
+        Checking checking = new Checking();
+        checking.setBalance(10000);
+        checking.setInterest(1);
+
+        Checking checking1 = new Checking();
+        checking1.setBalance(20000);
+        checking1.setInterest(10);
+
+        Banker.withdraw(5000);
+
+        assertEquals(5000, checking.getBalance(), 1.0);
+    }
+
+    @Test
+    public void reportTotalInterestEarnedInAllAccounts () {
+
+        account.computeInterest();
+        assertEquals(81444.74, account.computeInterest(), 1.0);
+    }
+
+
 
 }
