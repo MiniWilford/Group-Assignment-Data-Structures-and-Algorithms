@@ -17,7 +17,6 @@ public class AccountReader {
     private static void createAccount() {
         Path accountsFilePath = Paths.get("accounts.json");
         try {
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
