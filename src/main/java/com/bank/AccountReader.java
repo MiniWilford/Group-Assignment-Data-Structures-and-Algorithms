@@ -30,7 +30,10 @@ public class AccountReader implements JsonSerializer<Account>, JsonDeserializer<
      */
     @Override
     public JsonElement serialize(Account account, Type type, JsonSerializationContext jsonSerializationContext) {
-        return null;
+        JsonObject result = new JsonObject();
+        result.add("type", new JsonPrimitive(account.getClass().getSimpleName()));
+        result.add("properties", jsonSerializationContext.serialize(account, account.getClass()));
+        return result;
     }
 
     /**
@@ -43,6 +46,13 @@ public class AccountReader implements JsonSerializer<Account>, JsonDeserializer<
      */
     @Override
     public Account deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-        return null;
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+        String accountType = jsonObject.get("type").getAsString();
+        JsonElement element = jsonObject.get("properties");
+        try {
+            return jsonDeserializationContext.deserialize(element, Class.forName(accountType));
+        } catch (ClassNotFoundException e) {
+            throw new JsonParseException(e);
+        }
     }
 }
