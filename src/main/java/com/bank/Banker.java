@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 public class Banker {
 
-    public static final String CHECKING = "Checking";
-    public static final String SAVINGS = "Savings";
-    public static final String CERTIFICATEOFDEPOSIT = "Certificate Of Deposit";
+    public static String CHECKING = "Checking";
+    public static String SAVINGS = "Savings";
+    public static String CERTIFICATEOFDEPOSIT = "Certificate Of Deposit";
+    //These were final
 
     private static ArrayList<Account> allAccounts = new ArrayList<>();
     public static void main(String[] args) {
