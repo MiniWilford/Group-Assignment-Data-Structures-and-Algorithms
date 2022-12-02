@@ -84,7 +84,7 @@ public class Account extends Banker implements Comparable<Account>{
             return priority;
         }
 
-        public static void setPriority(String priority) {
+        public void setPriority(String priority) {
             this.priority = priority;
         }
 

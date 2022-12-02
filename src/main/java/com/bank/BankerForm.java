@@ -20,6 +20,7 @@ public class BankerForm {
     private JTextField txtPeriods;
     private JTextField txtMaturity;
     private JLabel lblMaturity;
+    private JButton btnWithdrawal;
 
 
     private Vector<Account> allAccounts = new Vector<>(); //All accounts to be listed in JList lstAccounts in center Panel
@@ -110,6 +111,20 @@ public class BankerForm {
                         txtMaturity.setEnabled(false);
                 }
 
+            }
+        });
+
+        /**
+         * Invoked when Withdrawl button is pressed.
+         *
+         * @param e the event to be processed
+         */
+        btnWithdrawal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AccountReader accountsRead = new AccountReader();
+                accountsRead.readAccounts();
+                lstAccounts.updateUI();
             }
         });
     }

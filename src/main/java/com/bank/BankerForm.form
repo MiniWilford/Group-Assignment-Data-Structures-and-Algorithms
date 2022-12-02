@@ -29,6 +29,12 @@
               <text value="Compute Interest"/>
             </properties>
           </component>
+          <component id="dc972" class="javax.swing.JButton" binding="btnWithdrawal">
+            <constraints/>
+            <properties>
+              <text value="Withdrawl"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <component id="1acf6" class="javax.swing.JLabel">

@@ -70,7 +70,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
     // By Josh Miller
     private static Queue<Account> Withdrawal = new PriorityQueue<>();
 
-    public static void readAccounts() {
+    public void readAccounts() {
 
         Path accountFilePath = Paths.get("accounts.json");
         try {
@@ -85,7 +85,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
                     CERTIFICATEOFDEPOSIT = withdrawalArray[2];
                     String priority = withdrawalArray[3];
                     Account account = new Account();
-                    Account.setPriority(priority);
+                    account.setPriority(priority);
                     //This is in account, but I don't know why it's not working
                     Withdrawal.offer(account);
                 }
