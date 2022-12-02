@@ -11,6 +11,10 @@ public class Account extends Banker implements Serializable, Comparable<Account>
     private int periods;
 
 
+    /**
+     * Gets total of money in balance to be set for an account...
+     * @return entered balance
+     */
     public double getBalance() {
         return balance;
     }

@@ -13,10 +13,6 @@ import java.util.Queue;
 
 public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>{
 
-    public static void main(String[] args) {
-        createAccount();
-    }
-
     /**
      * Create Account(s) using a Try-Catch, reading accounts.json file in directory path
      *
