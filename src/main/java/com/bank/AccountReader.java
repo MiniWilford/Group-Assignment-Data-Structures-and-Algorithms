@@ -3,11 +3,17 @@ package com.bank;
 import com.google.gson.*;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.LinkedList;
 
-public class AccountReader implements JsonSerializer<Account>, JsonDeserializer<Account> {
+public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>, Serializable{
 
     public static void main(String[] args) {
         createAccount();
@@ -58,6 +64,45 @@ public class AccountReader implements JsonSerializer<Account>, JsonDeserializer<
             return jsonDeserializationContext.deserialize(element, Class.forName(accountType));
         } catch (ClassNotFoundException e) {
             throw new JsonParseException(e);
+        }
+    }
+
+    // By Josh Miller
+    private static Queue<Account> Withdrawal = new PriorityQueue<>();
+
+    public static void readAccounts() {
+
+        Path accountFilePath = Paths.get("accounts.json");
+        try {
+
+            List<String> accountLines = Files.readAllLines(accountFilePath);
+            for (String withdrawalItem: accountLines)
+            {
+                String[] withdrawalArray = withdrawalItem.split(",");
+                if (withdrawalArray.length >= 4) {
+                    CHECKING = withdrawalArray[0];
+                    SAVINGS = withdrawalArray[1];
+                    CERTIFICATEOFDEPOSIT = withdrawalArray[2];
+                    String priority = withdrawalArray[3];
+                    Account account = new Account();
+                    Account.setPriority(priority);
+                    //This is in account, but I don't know why it's not working
+                    Withdrawal.offer(account);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);}
+    }
+
+
+    public static Account fetchNextQualifiedAccount() {
+        return Withdrawal.peek();
+    }
+
+    public static void removeAccount(Account inAccount) throws Exception {
+        Account nextAccount = Withdrawal.poll();
+        if (!nextAccount.equals(inAccount)) {
+            throw new Exception ("Account is not in queue");
         }
     }
 }

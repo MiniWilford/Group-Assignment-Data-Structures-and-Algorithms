@@ -2,13 +2,12 @@ package com.bank;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Account extends Banker{
+public class Account extends Banker implements Comparable<Account>{
     //Extended banker for Savings, Checking, and Certificate
 
     private double balance;
     private double interest;
     private int periods;
-
 
 
     public double getBalance() {
@@ -71,7 +70,6 @@ public class Account extends Banker{
     @Override
     public String toString() {return "Account has $" + getBalance() + " after " + getPeriods() + " periods. With interest of %" + getInterest(); }
 
-    public class Accounts implements Comparable<Accounts> {
         private String priority;
 
         private static Map<String, Integer> priorities = new HashMap<>();
@@ -86,16 +84,14 @@ public class Account extends Banker{
             return priority;
         }
 
-        public void setPriority(String priority) {
+        public static void setPriority(String priority) {
             this.priority = priority;
         }
 
         @Override
-        public int compareTo(Accounts o) {
+        public int compareTo(Account o) {
             int ourPriority = priorities.get(getPriority());
             int theirPriority = priorities.get(o.getPriority());
             return ourPriority - theirPriority;
         }
-    }
-
 }
