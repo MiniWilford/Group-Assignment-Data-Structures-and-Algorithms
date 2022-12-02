@@ -1,8 +1,16 @@
 package com.bank;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Vector;
 
 public class BankerForm {
@@ -21,6 +29,7 @@ public class BankerForm {
     private JTextField txtMaturity;
     private JLabel lblMaturity;
     private JButton btnWithdrawal;
+    private JButton btnAddAccountsFromJSON;
 
 
     private Vector<Account> allAccounts = new Vector<>(); //All accounts to be listed in JList lstAccounts in center Panel
@@ -125,6 +134,31 @@ public class BankerForm {
                 AccountReader accountsRead = new AccountReader();
                 accountsRead.readAccounts();
                 lstAccounts.updateUI();
+            }
+        });
+
+        /**
+         * Invoked when 'Add Accounts From File' button is pressed.
+         * Then proceeds to read JSON file data from accounts.json
+         *
+         * @param e the event to be processed
+         */
+        btnAddAccountsFromJSON.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    BufferedReader reader = Files.newBufferedReader(Paths.get("accounts.json"));
+                    GsonBuilder gsonBuilder = new GsonBuilder();
+                    gsonBuilder.registerTypeAdapter(Account.class, new AccountReader());
+                    Gson gson = gsonBuilder.create();
+                    // Read through Vector of Accounts
+                    Vector<Account> inAccounts = gson.fromJson(reader, new TypeToken<Vector<Account>>(){}.getType());
+                    allAccounts.addAll(inAccounts);
+                    lstAccounts.updateUI();
+                    reader.close();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
