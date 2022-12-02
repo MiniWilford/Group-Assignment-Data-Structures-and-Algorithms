@@ -3,7 +3,6 @@ package com.bank;
 import com.google.gson.*;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>, Serializable{
+public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>{
 
     public static void main(String[] args) {
         createAccount();
@@ -67,10 +66,16 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
     }
 
     // By Josh Miller
+    /**
+     * Creates and stores account queue under 'withdrawal' under a priority-queue
+     */
     private static Queue<Account> withdrawal = new PriorityQueue<>();
 
+    /**
+     * readAccounts looks through the accounts.json
+     * and goes through all lines to determine accounts new priority amongst an array.
+     */
     public void readAccounts() {
-
         Path accountFilePath = Paths.get("accounts.json");
         try {
 
@@ -90,18 +95,24 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);}
+            throw new RuntimeException(e);
+        }
     }
 
 
     /**
-     * Retreives head of account priority queue
+     * Retrieves head of account priority queue
      * @return next valid account at head of the priority queue
      */
     public static Account fetchNextQualifiedAccount() {
         return withdrawal.peek();
     }
 
+    /**
+     *  Removes account at head of queue if doesn't meet expected priority match
+     * @param inAccount
+     * @throws Exception
+     */
     public static void removeAccount(Account inAccount) throws Exception {
         Account nextAccount = withdrawal.poll();
         if (!nextAccount.equals(inAccount)) {
