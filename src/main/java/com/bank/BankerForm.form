@@ -46,6 +46,7 @@
             <constraints/>
             <properties>
               <text value="Save Accounts To File"/>
+              <toolTipText value="Take saved accounts and store into JSON"/>
             </properties>
           </component>
         </children>

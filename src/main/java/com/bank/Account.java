@@ -1,8 +1,9 @@
 package com.bank;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Account extends Banker implements Comparable<Account>{
+public class Account extends Banker implements Serializable, Comparable<Account> {
     //Extended banker for Savings, Checking, and Certificate
 
     private double balance;
