@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.bank.BankerForm">
   <grid id="27dc6" binding="pnlMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="514" height="527"/>
+      <xy x="20" y="20" width="667" height="527"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -40,6 +40,12 @@
             <properties>
               <text value="Add Accounts From File"/>
               <toolTipText value="Extract account data from Json"/>
+            </properties>
+          </component>
+          <component id="d32aa" class="javax.swing.JButton" binding="btnAddAccountsToJSON">
+            <constraints/>
+            <properties>
+              <text value="Save Accounts To File"/>
             </properties>
           </component>
         </children>

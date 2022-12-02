@@ -94,6 +94,10 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
     }
 
 
+    /**
+     * Retreives head of account priority queue
+     * @return next valid account at head of the priority queue
+     */
     public static Account fetchNextQualifiedAccount() {
         return withdrawal.peek();
     }

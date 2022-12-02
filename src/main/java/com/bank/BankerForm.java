@@ -7,8 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Vector;
@@ -30,6 +29,7 @@ public class BankerForm {
     private JLabel lblMaturity;
     private JButton btnWithdrawal;
     private JButton btnAddAccountsFromJSON;
+    private JButton btnAddAccountsToJSON;
 
 
     private Vector<Account> allAccounts = new Vector<>(); //All accounts to be listed in JList lstAccounts in center Panel
@@ -160,6 +160,30 @@ public class BankerForm {
                     allAccounts.addAll(inAccounts);
                     lstAccounts.updateUI();
                     reader.close();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        btnAddAccountsToJSON.addActionListener(new ActionListener() {
+            /**
+             * Invoked when 'Save Accounts to File' button is pressed the objects are stored to JSON and serialized.
+             *
+             * @param e When 'Save Accounts to File' button is pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try(FileOutputStream file = new FileOutputStream("accounts.json")) {
+                    PrintWriter out = new PrintWriter(file);
+                    GsonBuilder gsonBuilder = new GsonBuilder();
+                    gsonBuilder.registerTypeAdapter(Account.class, new AccountReader());
+                    Gson gson = gsonBuilder.create();
+                    String accountsJSON = gson.toJson(allAccounts, new TypeToken<Vector<Account>>(){}.getType());
+                    out.write(accountsJSON);
+                    out.flush();
+                    out.close();
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
