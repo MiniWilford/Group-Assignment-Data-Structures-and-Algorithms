@@ -10,6 +10,8 @@ public class Account extends Banker implements Serializable, Comparable<Account>
     private double interest;
     private int periods;
 
+    private String accountNumber;
+
 
     /**
      * Gets total of money in balance to be set for an account...
@@ -77,7 +79,10 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
         private String priority;
 
-        private static Map<String, Integer> priorities = new HashMap<>();
+    /**
+     * priorities hashmap that assigns a string value to a number value to compare priorities amongst account types
+     */
+    private static Map<String, Integer> priorities = new HashMap<>();
 
         static {
             priorities.put(CHECKING, 1);
@@ -93,10 +98,31 @@ public class Account extends Banker implements Serializable, Comparable<Account>
             this.priority = priority;
         }
 
-        @Override
+    /**
+     * Overiding Comparable<Account> interface to compare priority of user bank accounts
+     * @param o the account to be compared
+     * @return accounts priority
+     */
+    @Override
         public int compareTo(Account o) {
             int ourPriority = priorities.get(getPriority());
             int theirPriority = priorities.get(o.getPriority());
             return ourPriority - theirPriority;
         }
+
+    /**
+     * Retrieves entered account number from user
+     * @return entered account number
+     */
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    /**
+     * Sets user's account number entered (corresponds to in getAccountNumber)
+     * @param accountNumber the entered account number to be set
+     */
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 }

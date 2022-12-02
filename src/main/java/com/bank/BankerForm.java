@@ -30,6 +30,7 @@ public class BankerForm {
     private JButton btnWithdrawal;
     private JButton btnAddAccountsFromJSON;
     private JButton btnAddAccountsToJSON;
+    private JTextField txtAccountNumber;
 
 
     private Vector<Account> allAccounts = new Vector<>(); //All accounts to be listed in JList lstAccounts in center Panel
