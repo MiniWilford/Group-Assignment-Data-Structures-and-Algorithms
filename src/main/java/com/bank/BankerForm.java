@@ -83,14 +83,15 @@ public class BankerForm {
             }
         });
 
-        /**
-         * Event listener on button btnInterest (Compute Interest).
-         *
-         * Computes user entered periods and converts from string data type to integer.
-         * Runs through vector stream of all accounts and updates panel after each computation.
-         * User experiences real-time changes in the program.
-         */
+
         btnInterest.addActionListener(new ActionListener() {
+            /**
+             * Event listener on button btnInterest (Compute Interest).
+             *
+             * Computes user entered periods and converts from string data type to integer.
+             * Runs through vector stream of all accounts and updates panel after each computation.
+             * User experiences real-time changes in the program.
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String strGetPeriods = txtPeriods.getText();
@@ -101,12 +102,13 @@ public class BankerForm {
             }
         });
 
-        /**
-         * Action listener on JComboBox to check if Certificate of Deposit is selected
-         * If selected then shows extra JTextField
-         * Else hides JTextField / is disabled
-         */
+
         cmbMakeAccount.addActionListener(new ActionListener() {
+            /**
+             * Action listener on JComboBox to check if Certificate of Deposit is selected
+             * If selected then shows extra JTextField
+             * Else hides JTextField / is disabled
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                     if (cmbMakeAccount.getSelectedItem().toString().equals(Banker.CERTIFICATEOFDEPOSIT)) {
@@ -123,12 +125,13 @@ public class BankerForm {
             }
         });
 
-        /**
-         * Invoked when Withdrawl button is pressed.
-         *
-         * @param e the event to be processed
-         */
+
         btnWithdrawal.addActionListener(new ActionListener() {
+            /**
+             * Invoked when Withdrawal button is pressed.
+             *
+             * @param e the event to be processed
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 AccountReader accountsRead = new AccountReader();
@@ -137,13 +140,14 @@ public class BankerForm {
             }
         });
 
-        /**
-         * Invoked when 'Add Accounts From File' button is pressed.
-         * Then proceeds to read JSON file data from accounts.json
-         *
-         * @param e the event to be processed
-         */
+
         btnAddAccountsFromJSON.addActionListener(new ActionListener() {
+            /**
+             * Invoked when 'Add Accounts From File' button is pressed.
+             * Then proceeds to read / deserialize JSON file data from accounts.json
+             *
+             * @param e When 'Add Accounts From File' button is pressed.
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {

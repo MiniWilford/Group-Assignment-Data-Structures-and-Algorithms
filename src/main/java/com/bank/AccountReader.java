@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.LinkedList;
 
 public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>, Serializable{
 
@@ -68,7 +67,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
     }
 
     // By Josh Miller
-    private static Queue<Account> Withdrawal = new PriorityQueue<>();
+    private static Queue<Account> withdrawal = new PriorityQueue<>();
 
     public void readAccounts() {
 
@@ -87,7 +86,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
                     Account account = new Account();
                     account.setPriority(priority);
                     //This is in account, but I don't know why it's not working
-                    Withdrawal.offer(account);
+                    withdrawal.offer(account);
                 }
             }
         } catch (IOException e) {
@@ -96,11 +95,11 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
 
 
     public static Account fetchNextQualifiedAccount() {
-        return Withdrawal.peek();
+        return withdrawal.peek();
     }
 
     public static void removeAccount(Account inAccount) throws Exception {
-        Account nextAccount = Withdrawal.poll();
+        Account nextAccount = withdrawal.poll();
         if (!nextAccount.equals(inAccount)) {
             throw new Exception ("Account is not in queue");
         }
