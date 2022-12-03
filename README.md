@@ -26,25 +26,25 @@
 ## Self Grade Sheet:
 
 * Have a GitHub repository, with commits from all teammates
-* **This repository should have a README.md describes your project. __/10**
-* **Create a class diagram in draw.io and include it in your README.md __/10**
+* **This repository should have a README.md describes your project. 7/10**
+* **Create a class diagram in draw.io and include it in your README.md 10/10**
 * Start with the program that collects accounts.
-* **Initialize your accounts by reading the provided JSON file, accounts.json Download accounts.json.  Allow the user to create additional accounts with the GUI. __/10**
-* **Do not allow the user to create duplicate accounts, or duplicate account numbers. __/10**
+* **Initialize your accounts by reading the provided JSON file, accounts.json Download accounts.json.  Allow the user to create additional accounts with the GUI. 8/10**
+* **Do not allow the user to create duplicate accounts, or duplicate account numbers. 5/10**
   * Add an account number attribute to class Account, and a corresponding field to the GUI.
   * Place all used account numbers in a Set.
   * When the user enters an account, validate that it is not currently in the Set of account numbers.
 * Allow the user to withdraw money from accounts.  Start by withdrawing from the account that pays the lowest interest
-  * **Adjust the GUI to allow withrdawls.  __/10**
+  * **Adjust the GUI to allow withrdawls.  10/10**
   * Place accounts in a priority queue, based on rate.
-  * **Use Comparator/compareTo to compare rates.  __/10**
+  * **Use Comparator/compareTo to compare rates.  7/10**
   * Allow partial withdraws from accounts; simply update principle
-* **Report total interest earned, across all accounts, for a given period. __/10**
+* **Report total interest earned, across all accounts, for a given period. 5/10**
   * Iterate over the collection.  Compute interest earned.  Store interest earned from each account in a collection (ArrayList, etc.)  Iterate and sum.
-* **Test your work. __/10**
+* **Test your work. 7/10**
   * Write unit tests to cover the cases above.
   * Ensure they run with GitHub actions.  
-* **Code is in good form, and conforms to best practices.  Classes and public methods contain JavaDoc. __/10**
+* **Code is in good form, and conforms to best practices.  Classes and public methods contain JavaDoc. 10/10**
 * **Do something extra, beyond the minimum requirements stated here.  __/10**
   * What did you do?  Must list to earn credit.
   * ______
