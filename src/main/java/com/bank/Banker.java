@@ -71,4 +71,8 @@ public class Banker {
                 JOptionPane.showMessageDialog(null, "The account has a balance of: " + account.getBalance());
             }
     }
+
+    public static void withdraw(int amount) {
+
+    }
 }
