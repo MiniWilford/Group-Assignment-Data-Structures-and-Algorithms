@@ -21,7 +21,7 @@
 
 ## Class Diagram:
 
-![Banker Class Diagram]()
+![Banker Class Diagram](https://github.com/MiniWilford/Group-Assignment-Data-Structures-and-Algorithms/blob/main/BankerClassDiagram.drawio.png)
 
 ## Self Grade Sheet:
 
