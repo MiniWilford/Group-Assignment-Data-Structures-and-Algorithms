@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.bank.BankerForm">
   <grid id="27dc6" binding="pnlMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="667" height="527"/>
+      <xy x="20" y="20" width="721" height="527"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -27,6 +27,12 @@
             <properties>
               <icon value="img/icons8-code-16.png"/>
               <text value="Compute Interest"/>
+            </properties>
+          </component>
+          <component id="696b2" class="javax.swing.JTextField" binding="txtWithdrawalAmount">
+            <constraints/>
+            <properties>
+              <toolTipText value="Enter Amount To Withdrawal"/>
             </properties>
           </component>
           <component id="dc972" class="javax.swing.JButton" binding="btnWithdrawal">
