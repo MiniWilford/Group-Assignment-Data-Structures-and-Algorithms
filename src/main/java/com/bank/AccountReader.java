@@ -7,11 +7,16 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class AccountReader extends Account implements JsonSerializer<Account>, JsonDeserializer<Account>{
+
+
+    /**
+     * Reads if all accounts read are unique
+     */
+    private static Map<String, Account> allAccounts = new HashMap<>();
+
 
     /**
      * Create Account(s) using a Try-Catch, reading accounts.json file in directory path
@@ -63,9 +68,9 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
 
     // By Josh Miller
     /**
-     * Creates and stores account queue under 'withdrawal' under a priority-queue
+     * Creates and stores account queue under 'withdrawalQueue' under a priority-queue
      */
-    private static Queue<Account> withdrawal = new PriorityQueue<>();
+    private static Queue<Account> withdrawalQueue = new PriorityQueue<>();
 
     /**
      * readAccounts looks through the accounts.json
@@ -87,7 +92,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
                     Account account = new Account();
                     account.setPriority(priority);
                     //This is in account, but I don't know why it's not working
-                    withdrawal.offer(account);
+                    withdrawalQueue.offer(account);
                 }
             }
         } catch (IOException e) {
@@ -101,7 +106,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
      * @return next valid account at head of the priority queue
      */
     public static Account fetchNextQualifiedAccount() {
-        return withdrawal.peek();
+        return withdrawalQueue.peek();
     }
 
     /**
@@ -110,7 +115,7 @@ public class AccountReader extends Account implements JsonSerializer<Account>, J
      * @throws Exception
      */
     public static void removeAccount(Account inAccount) throws Exception {
-        Account nextAccount = withdrawal.poll();
+        Account nextAccount = withdrawalQueue.poll();
         if (!nextAccount.equals(inAccount)) {
             throw new Exception ("Account is not in queue");
         }
