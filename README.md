@@ -21,7 +21,7 @@
 
 ## Class Diagram:
 
-**(insert class diagram here)**
+![Banker Class Diagram]()
 
 ## Self Grade Sheet:
 
