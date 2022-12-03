@@ -45,6 +45,6 @@
   * Write unit tests to cover the cases above.
   * Ensure they run with GitHub actions.  
 * **Code is in good form, and conforms to best practices.  Classes and public methods contain JavaDoc. 10/10**
-* **Do something extra, beyond the minimum requirements stated here.  __/10**
+* **Do something extra, beyond the minimum requirements stated here.  6/10**
   * What did you do?  Must list to earn credit.
-  * ______
+  * Added image icons to Save / Compute buttons as well as added tool tips to buttons for ease of use.
