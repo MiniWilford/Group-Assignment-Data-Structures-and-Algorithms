@@ -13,6 +13,7 @@ public class Account extends Banker implements Serializable, Comparable<Account>
     private String accountNumber;
 
 
+
     /**
      * Gets total of money in balance to be set for an account...
      * @return entered balance
@@ -125,4 +126,14 @@ public class Account extends Banker implements Serializable, Comparable<Account>
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
+
+    public static double computeInterest() {
+        double totalInterest = 0;
+        for (Gasoline gas: gasoline) {
+            value += gas.getGallons() * gas.getPrice();
+        }
+        double streamSum = gasoline.stream().mapToDouble(gas -> gas.getGallons() * gas.getPrice()).sum();
+        return value;
+    }
+
 }
