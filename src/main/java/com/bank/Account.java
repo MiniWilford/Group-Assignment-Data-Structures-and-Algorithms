@@ -2,6 +2,7 @@ package com.bank;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class Account extends Banker implements Serializable, Comparable<Account> {
     //Extended banker for Savings, Checking, and Certificate
@@ -18,6 +19,7 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     private double accountWithdraw;
 
+    private static Stack<Account> accounts = new Stack<>();
 
     /**
      * Gets total of money in balance to be set for an account...
@@ -134,11 +136,11 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     public static double computeInterest() {
         double totalInterest = 0;
-        for (Gasoline gas: gasoline) {
-            value += gas.getGallons() * gas.getPrice();
+        for (Account interest: accounts) {
+            totalInterest += accounts.getInterest() * accounts.getPeriods();
         }
-        double streamSum = gasoline.stream().mapToDouble(gas -> gas.getGallons() * gas.getPrice()).sum();
-        return value;
+        double streamSum = accounts.stream().mapToDouble(gas -> accounts.getInterest() * accounts.getPeriods()).sum();
+        return totalInterest;
     }
 
 
