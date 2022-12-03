@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.bank.BankerForm">
   <grid id="27dc6" binding="pnlMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="837" height="527"/>
+      <xy x="20" y="20" width="843" height="527"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -38,7 +38,8 @@
           <component id="dc972" class="javax.swing.JButton" binding="btnWithdrawal">
             <constraints/>
             <properties>
-              <text value="Withdrawl"/>
+              <text value="Withdrawal"/>
+              <toolTipText value="Select Amount To Remove From Account(s)"/>
             </properties>
           </component>
           <component id="4fb11" class="javax.swing.JButton" binding="btnWithdrawalAll">

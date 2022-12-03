@@ -131,13 +131,19 @@ public class BankerForm {
 
         btnWithdrawal.addActionListener(new ActionListener() {
             /**
-             * Invoked when Withdrawal button is pressed.
+             * Invoked when Withdrawal button is pressed and reads from txtWithdrawalAmount textbox to remove from accounts.
              *
-             * @param e the event to be processed
+             * @param e when 'Withdrawal' button is pressed and a value is entered into 'txtWithdrawalAmount'
              */
             @Override
             public void actionPerformed(ActionEvent e) {
                 AccountReader accountsRead = new AccountReader();
+                Account account = new Account();
+
+                String strWithdrawalAmount = txtWithdrawalAmount.getText();
+                int withdrawalAmount = Integer.parseInt(strWithdrawalAmount);
+
+                allAccounts.stream().forEach(account1 -> {account.setAccountWithdraw(withdrawalAmount);});
                 accountsRead.readAccounts();
                 lstAccounts.updateUI();
             }
