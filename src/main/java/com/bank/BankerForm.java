@@ -198,6 +198,21 @@ public class BankerForm {
                 }
             }
         });
+
+        btnWithdrawalAll.addActionListener(new ActionListener() {
+            /**
+             * Invoked when button 'Withdrawal All' is pressed.
+             *
+             * @param e Withdrawals entire account amount from all accounts and updates UI of new amount
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Account accountBalance = new Account();
+
+                allAccounts.stream().forEach(account -> account.setAccountWithdraw(accountBalance.getBalance()));
+                lstAccounts.updateUI();
+            }
+        });
     }
 
     /**
