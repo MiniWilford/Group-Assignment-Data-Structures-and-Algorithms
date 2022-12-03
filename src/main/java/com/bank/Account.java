@@ -12,6 +12,11 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     private String accountNumber;
 
+    private double withdrawal;
+
+    private double overAllWithdrawl;
+
+    private double accountWithdraw;
 
 
     /**
@@ -136,4 +141,62 @@ public class Account extends Banker implements Serializable, Comparable<Account>
         return value;
     }
 
+
+    /**
+     * Get Withdrawal amount from user
+     * @return withdrawal amount
+     */
+    public double getWithdrawal() {
+        return withdrawal;
+    }
+
+    /**
+     * Set withdrawal amount that user specifed with getWithdrawal
+     * @param withdrawal
+     */
+    public void setWithdrawal(double withdrawal) {
+        this.withdrawal = withdrawal;
+    }
+
+    /**
+     * Withdrawals entire amount of money from account
+     * @return entire account amount
+     */
+    public double getOverAllWithdrawl() {
+        return overAllWithdrawl;
+    }
+
+    /**
+     * Set entire account amount to withdraw once overallwithdrawal is found.
+     * @param overAllWithdrawl to get entire amount to withdrawal from account
+     */
+    public void setOverAllWithdrawl(double overAllWithdrawl) {
+        this.overAllWithdrawl = overAllWithdrawl;
+    }
+
+    /**
+     * Ammount of money to remove from account
+     * @return set money to remove from account
+     */
+    public double getAccountWithdraw() {
+        return accountWithdraw;
+    }
+
+    /**
+     * Set amount of withdrawal amount to remove
+     * @param accountWithdraw amount of money to remove from account
+     */
+    public void setAccountWithdraw(double accountWithdraw) {
+        this.accountWithdraw = accountWithdraw;
+    }
+
+    /**
+     * Subtract withdrawal amount specified from account and return new amount
+     * @param WithdrawlMath withdrawal amount to remove from account
+     */
+    public void ComputeWithdrawal(double WithdrawlMath) {
+        // Subtract withdrwal ammount
+        WithdrawlMath = getWithdrawal() - getOverAllWithdrawl();
+        accountWithdraw = WithdrawlMath;
+    }
 }
