@@ -56,7 +56,7 @@ public class AccountTests {
         checking1.setBalance(20000);
         checking1.setInterest(10);
 
-        Banker.withdraw(5000);
+        checking.computeWithdrawal(5000);
 
         assertEquals(5000, checking.getBalance(), 1.0);
     }
