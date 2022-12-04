@@ -195,11 +195,10 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     /**
      * Subtract withdrawal amount specified from account and return new amount
-     * @param withdrawalMath withdrawal amount to remove from account
      */
-    public void computeWithdrawal(double withdrawalMath) {
+    public void computeWithdrawal(double withdrawalAmount) {
         // Subtract withdrawal amount
-        withdrawalMath = getWithdrawal() - getOverAllWithdrawal();
-        accountWithdraw = withdrawalMath;
+        withdrawal = getBalance() - withdrawalAmount;
+        setBalance(withdrawal);
     }
 }

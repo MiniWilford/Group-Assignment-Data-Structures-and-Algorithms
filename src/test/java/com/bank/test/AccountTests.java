@@ -48,11 +48,11 @@ public class AccountTests {
 
     @Test
     public void withdraw5000fromLowestInterestAccount() {
-        Checking checking = new Checking();
+        Account checking = new Checking();
         checking.setBalance(10000);
         checking.setInterest(1);
 
-        Checking checking1 = new Checking();
+        Account checking1 = new Checking();
         checking1.setBalance(20000);
         checking1.setInterest(10);
 

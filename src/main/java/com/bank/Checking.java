@@ -14,6 +14,6 @@ public class Checking extends Account{
     }
 
     @Override
-    public String toString() {return "Account " + getClass() + "has $" + getBalance() + " after fees added, and " + getPeriods() + " periods."; }
+    public String toString() {return "Account " + getClass() + " has $" + getBalance() + " after fees added, and " + getPeriods() + " periods."; }
 
 }
