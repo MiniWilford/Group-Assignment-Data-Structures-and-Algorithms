@@ -23,6 +23,6 @@ public class CertificateOfDeposit extends Account{
      * @return maturity and account balance
      */
     @Override
-    public String toString() { return "Account maturity: " + getMaturity() + ". Balance: $" + getBalance(); }
+    public String toString() { return "Account " + getClass() + " has maturity: " + getMaturity() + ". Balance: $" + getBalance(); }
 
 }

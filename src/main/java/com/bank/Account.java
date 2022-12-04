@@ -83,7 +83,7 @@ public class Account extends Banker implements Serializable, Comparable<Account>
      * @return account balance, account periods, and account interest
      */
     @Override
-    public String toString() {return "Account has $" + getBalance() + " after " + getPeriods() + " periods. With interest of %" + getInterest(); }
+    public String toString() {return "Account " + getClass() + " has $" + getBalance() + " after " + getPeriods() + " periods. With interest of %" + getInterest(); }
 
         private String priority;
 
