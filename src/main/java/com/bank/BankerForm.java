@@ -141,9 +141,9 @@ public class BankerForm {
                 Account account = new Account();
 
                 String strWithdrawalAmount = txtWithdrawalAmount.getText();
-                int withdrawalAmount = Integer.parseInt(strWithdrawalAmount);
+                double withdrawalAmount = Double.parseDouble(strWithdrawalAmount);
 
-                allAccounts.stream().forEach(account1 -> {account.setAccountWithdraw(withdrawalAmount);});
+                allAccounts.stream().forEach(account1 -> {account.computeWithdrawal(withdrawalAmount);});
                 accountsRead.readAccounts();
                 lstAccounts.updateUI();
             }
