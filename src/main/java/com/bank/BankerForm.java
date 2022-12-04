@@ -207,9 +207,10 @@ public class BankerForm {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                Account accountBalance = new Account();
+                Account account = new AccountReader();
+                double accountBalance = account.getBalance();
 
-                allAccounts.stream().forEach(account -> account.setAccountWithdraw(accountBalance.getBalance()));
+                allAccounts.stream().forEach(accounts -> account.setAccountWithdraw(accountBalance));
                 lstAccounts.updateUI();
             }
         });
