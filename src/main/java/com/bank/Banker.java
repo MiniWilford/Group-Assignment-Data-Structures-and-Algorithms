@@ -68,7 +68,7 @@ public class Banker {
     private static void displayBalance() {
             for (Account account : allAccounts) {
                 account.compute();
-                JOptionPane.showMessageDialog(null, "The account has a balance of: " + account.getBalance());
+                JOptionPane.showMessageDialog(null, "The account " + account.getClass() +" has a balance of: " + account.getBalance());
             }
     }
 

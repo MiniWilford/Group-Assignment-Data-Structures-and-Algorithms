@@ -165,7 +165,7 @@ public class BankerForm {
                     gsonBuilder.registerTypeAdapter(Account.class, new AccountReader());
                     Gson gson = gsonBuilder.create();
                     // Read through Vector of Accounts
-                    Vector<AccountReader> inAccounts = gson.fromJson(reader, new TypeToken<Vector<AccountReader>>(){}.getType()); // Account gives error, AccountReader gives all empty slots
+                    Vector<Account> inAccounts = gson.fromJson(reader, new TypeToken<Vector<AccountReader>>(){}.getType()); // Account gives error, AccountReader gives all empty slots
                     allAccounts.addAll(inAccounts); //reads correct amount, but returns null values for each.
                     lstAccounts.updateUI();
                     reader.close();

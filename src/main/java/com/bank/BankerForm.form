@@ -32,6 +32,8 @@
           <component id="696b2" class="javax.swing.JTextField" binding="txtWithdrawalAmount">
             <constraints/>
             <properties>
+              <minimumSize width="49" height="29"/>
+              <preferredSize width="50" height="29"/>
               <toolTipText value="Enter Amount To Withdrawal"/>
             </properties>
           </component>
