@@ -66,17 +66,17 @@ public class AccountTests {
     @Test
     public void reportTotalInterestEarnedInAllAccounts () {
         // Get Total interest from all accounts
-        Savings savings = new Savings();
+        Account savings = new Savings();
         savings.setBalance(100);
         savings.setPeriods(5);
         savings.setInterest(5);
 
-        Checking checking = new Checking();
+        Account checking = new Checking();
         checking.setBalance(100);
         checking.setPeriods(5);
         checking.setInterest(5);
 
-        CertificateOfDeposit certificateOfDeposit = new CertificateOfDeposit();
+        Account certificateOfDeposit = new CertificateOfDeposit();
         certificateOfDeposit.setBalance(100);
         certificateOfDeposit.setPeriods(5);
         certificateOfDeposit.setInterest(5);
