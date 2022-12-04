@@ -15,7 +15,7 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     private double withdrawal;
 
-    private double overAllWithdrawl;
+    private double overAllWithdrawal;
 
     private double accountWithdraw;
 
@@ -136,10 +136,11 @@ public class Account extends Banker implements Serializable, Comparable<Account>
 
     public static double computeInterest() {
         double totalInterest = 0;
-        for (Account interest: accounts) {
-            totalInterest += accounts.getInterest() * accounts.getPeriods();
+
+        for (Account account: accounts) {
+            totalInterest += account.getInterest() * account.getPeriods();
         }
-        double streamSum = accounts.stream().mapToDouble(gas -> accounts.getInterest() * accounts.getPeriods()).sum();
+        double streamSum = accounts.stream().mapToDouble(account -> account.getInterest() * account.getPeriods()).sum();
         return totalInterest;
     }
 
@@ -164,16 +165,16 @@ public class Account extends Banker implements Serializable, Comparable<Account>
      * Withdrawals entire amount of money from account
      * @return entire account amount
      */
-    public double getOverAllWithdrawl() {
-        return overAllWithdrawl;
+    public double getOverAllWithdrawal() {
+        return overAllWithdrawal;
     }
 
     /**
      * Set entire account amount to withdraw once overallwithdrawal is found.
-     * @param overAllWithdrawl to get entire amount to withdrawal from account
+     * @param overAllWithdrawal to get entire amount to withdrawal from account
      */
-    public void setOverAllWithdrawl(double overAllWithdrawl) {
-        this.overAllWithdrawl = overAllWithdrawl;
+    public void setOverAllWithdrawal(double overAllWithdrawal) {
+        this.overAllWithdrawal = overAllWithdrawal;
     }
 
     /**
@@ -198,7 +199,7 @@ public class Account extends Banker implements Serializable, Comparable<Account>
      */
     public void ComputeWithdrawal(double WithdrawalMath) {
         // Subtract withdrawal amount
-        WithdrawalMath = getWithdrawal() - getOverAllWithdrawl();
+        WithdrawalMath = getWithdrawal() - getOverAllWithdrawal();
         accountWithdraw = WithdrawalMath;
     }
 }
