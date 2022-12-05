@@ -39,7 +39,7 @@
   * Place accounts in a priority queue, based on rate.
   * **Use Comparator/compareTo to compare rates.  8/10**
   * Allow partial withdraws from accounts; simply update principle
-* **Report total interest earned, across all accounts, for a given period. 5/10**
+* **Report total interest earned, across all accounts, for a given period. 7/10**
   * Iterate over the collection.  Compute interest earned.  Store interest earned from each account in a collection (ArrayList, etc.)  Iterate and sum.
 * **Test your work. 8/10**
   * Write unit tests to cover the cases above.
